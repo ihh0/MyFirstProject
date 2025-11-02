@@ -18,7 +18,6 @@ public class Main extends ApplicationAdapter {
     Sound effectSound;
 
     // Textures
-    private Texture backgroundTexture;
     private Texture mainmenuTexture;
     private Texture pauseTexture;
     private Texture clearTexture_background;
@@ -63,7 +62,6 @@ public class Main extends ApplicationAdapter {
 
         effectSound = Gdx.audio.newSound(Gdx.files.internal("drop.mp3"));
 
-        backgroundTexture = new Texture("background1.png");
         mainmenuTexture = new Texture("mainmenu.png");
         pauseTexture = new Texture("pause.png");
 
@@ -102,7 +100,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void render() {
-        ScreenUtils.clear(0.8f, 0.8f, 1f, 1f);
+        ScreenUtils.clear(1f, 1f, 1f, 1f);
         input();
         logic();
         draw();
@@ -130,7 +128,6 @@ public class Main extends ApplicationAdapter {
             mainmenuSprite.draw(batch);
         } else {
             world.getLevel().drawBG(batch);
-
             world.getPlayer().draw(batch);
 
             for (Block b : world.getLevel().getBlocks()) {
@@ -252,7 +249,5 @@ public class Main extends ApplicationAdapter {
             isNewRecord = true;
         }
     }
-    public void closeClearUI() {
-
-    }
+    
 }
