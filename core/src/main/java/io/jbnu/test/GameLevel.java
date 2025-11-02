@@ -1,6 +1,8 @@
 package io.jbnu.test;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.ArrayList;
 
@@ -13,6 +15,8 @@ public class GameLevel {
     Texture blockTexture1;
     Texture blockTexture2;
     Texture goalTexture;
+    Texture bgTexture;
+    Sprite bgSprite;
 
     public GameLevel(int level_code) {
         blocks = new ArrayList<>();
@@ -34,6 +38,10 @@ public class GameLevel {
     }
 
     private void createLevel_1() {
+        bgTexture = new Texture("background1.png");
+        bgSprite = new Sprite(bgTexture);
+        bgSprite.setBounds(0,-500,6000, 3000);
+
         blocks.add(new Block(-1000, 0, 1000, 1000, blockTexture0));
         for (int i = 0; i < 40; i++) {
             blocks.add(new Block(100*i, 0, 100, 100, blockTexture0));
@@ -87,6 +95,10 @@ public class GameLevel {
     }
 
     private void createLevel_2() {
+        bgTexture = new Texture("background2.png");
+        bgSprite = new Sprite(bgTexture);
+        bgSprite.setBounds(0,-1200,6000, 3900);
+
         blocks.add(new Block(-1000, 0, 1000, 1000, blockTexture1, 1));
         for (int i = 0; i < 40; i++) {
             blocks.add(new Block(100*i, 0, 100, 100, blockTexture1, 1));
@@ -112,6 +124,10 @@ public class GameLevel {
     }
 
     private void createLevel_3() {
+        bgTexture = new Texture("background3.png");
+        bgSprite = new Sprite(bgTexture);
+        bgSprite.setBounds(0,-1200,6000, 3500);
+
         blocks.add(new Block(-1000, 0, 1000, 1000, blockTexture0));
         for (int i = 0; i < 40; i++) {
             blocks.add(new Block(100*i, 0, 100, 100, blockTexture0));
@@ -144,6 +160,9 @@ public class GameLevel {
     }
     public Goal getGoal() {
         return goal;
+    }
+    public void drawBG(SpriteBatch batch) {
+        bgSprite.draw(batch);
     }
 
     public void dispose() {

@@ -63,7 +63,7 @@ public class Main extends ApplicationAdapter {
 
         effectSound = Gdx.audio.newSound(Gdx.files.internal("drop.mp3"));
 
-        backgroundTexture = new Texture("background.png");
+        backgroundTexture = new Texture("background1.png");
         mainmenuTexture = new Texture("mainmenu.png");
         pauseTexture = new Texture("pause.png");
 
@@ -92,7 +92,7 @@ public class Main extends ApplicationAdapter {
 
         records = new float[3];
         for (int i=0; i<3; i++) {
-            records[i] = 9999;
+            records[i] = 1000000000;
         }
         isNewRecord = false;
 
@@ -123,16 +123,14 @@ public class Main extends ApplicationAdapter {
     private void draw(){
         batch.begin();
 
-        backgroundSprite = new Sprite(backgroundTexture);
-        backgroundSprite.setBounds(0,0,6000, 3000);
-        backgroundSprite.draw(batch);
-
         if (currentState == GameState.MAIN_MENU) {
             mainmenuSprite = new Sprite(mainmenuTexture);
             mainmenuSprite.setScale(0.2f);
             mainmenuSprite.setCenter(WORLD_WIDTH/2, WORLD_HEIGHT/2);
             mainmenuSprite.draw(batch);
         } else {
+            world.getLevel().drawBG(batch);
+
             world.getPlayer().draw(batch);
 
             for (Block b : world.getLevel().getBlocks()) {
@@ -182,7 +180,7 @@ public class Main extends ApplicationAdapter {
             } else if (Gdx.input.isKeyPressed(Keys.LEFT)) {
                 world.onPlayerLeft();
             }
-            if (Gdx.input.isKeyPressed(Keys.SPACE)) {
+            if (Gdx.input.isKeyPressed(Keys.SPACE) || Gdx.input.isKeyPressed(Keys.UP)) {
                 world.onPlayerJump();
             }
             if (Gdx.input.isKeyJustPressed(Keys.ESCAPE)) {

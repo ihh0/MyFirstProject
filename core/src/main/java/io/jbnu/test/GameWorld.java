@@ -85,7 +85,7 @@ public class GameWorld {
                 // 오른쪽에 블럭이 있을 경우
                 else if (newX + p.width > b.x && prevX + p.width <= b.x) {
                     if (block.getProperty() == 2) {
-                        block.position.x += player.velocity.x * delta + 1f;
+                        block.position.x += player.velocity.x * delta + 0.1f;
                         block.syncSpriteToPosition();
                     } else {
                         player.velocity.x = 0;
@@ -95,7 +95,7 @@ public class GameWorld {
                 // 왼쪽에 블럭이 있을 경우
                 else if (newX < b.x + b.width && prevX >= b.x + b.width) {
                     if (block.getProperty() == 2) {
-                        block.position.x += player.velocity.x * delta - 1f;
+                        block.position.x += player.velocity.x * delta - 0.1f;
                         block.syncSpriteToPosition();
                     } else {
                         player.velocity.x = 0;
