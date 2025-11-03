@@ -11,7 +11,7 @@ import org.w3c.dom.Text;
 public class GameCharacter {
     // 캐릭터 움직임 관리
     private float MOVE_SPEED = 500f;
-    private float JUMP_FORCE = 1000f;
+    private float JUMP_FORCE = 1200f;
 
     // 상태 관리
     public Vector2 position; // 위치

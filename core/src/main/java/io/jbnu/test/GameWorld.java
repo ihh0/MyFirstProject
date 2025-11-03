@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class GameWorld {
 
-    public final float WORLD_GRAVITY = -9.8f * 200; // 초당 중력 값
+    public final float WORLD_GRAVITY = -2600; // 초당 중력 값
     public final float FLOOR_LEVEL = 0;          // 바닥의 Y 좌표
 
     public final float worldWidth;
@@ -144,21 +144,21 @@ public class GameWorld {
 
     public void onPlayerLeft() {
         if (!player.isGrounded) {
-            player.moveLeft(10);
-        } else if (isOnIce) {
             player.moveLeft(20);
+        } else if (isOnIce) {
+            player.moveLeft(40);
         } else {
-            player.moveLeft(80);
+            player.moveLeft(180);
         }
     }
 
     public void onPlayerRight() {
         if (!player.isGrounded || isOnIce) {
-            player.moveRight(10);
-        } else if (isOnIce) {
             player.moveRight(20);
+        } else if (isOnIce) {
+            player.moveRight(40);
         } else {
-            player.moveRight(80);
+            player.moveRight(180);
         }
     }
 
