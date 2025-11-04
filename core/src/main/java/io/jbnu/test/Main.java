@@ -14,9 +14,6 @@ public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
     GameWorld world;
 
-    // Sounds
-    Sound effectSound;
-
     // Textures
     private Texture mainmenuTexture;
     private Texture pauseTexture;
@@ -24,7 +21,6 @@ public class Main extends ApplicationAdapter {
     private Texture clearTexture_newRecord;
 
     // Sprites
-    private Sprite backgroundSprite;
     private Sprite mainmenuSprite;
     private Sprite pauseSprite;
     private Sprite clearSprite_background;
@@ -59,8 +55,6 @@ public class Main extends ApplicationAdapter {
     @Override
     public void create() {
         batch = new SpriteBatch();
-
-        effectSound = Gdx.audio.newSound(Gdx.files.internal("drop.mp3"));
 
         mainmenuTexture = new Texture("mainmenu.png");
         pauseTexture = new Texture("pause.png");
